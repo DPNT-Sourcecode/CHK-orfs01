@@ -6,18 +6,15 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
 
         int total = 0;
-        StringBuilder tempNum = new StringBuilder();
+
         int[] itemToPayCount = new int[6];
 
         for(Character c: skus.toCharArray()){
 
-            if(c.charValue() >= 48 && c.charValue() <= 58){
-                tempNum.append(c);
-            }
-            else{
+
 
                 int count = 1;
-                if(tempNum.length() > 0) count = Integer.parseInt(tempNum.toString());
+                if(c.charValue() >= );
 
                 if (c == 'A'){
                     itemToPayCount[0]+=count;
@@ -46,7 +43,7 @@ public class CheckoutSolution {
                 else
                     return -1;
 
-                tempNum = new StringBuilder();
+
             }
 
         }
