@@ -95,5 +95,14 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testItemEDiscount(){
+        String basket = "ABCD2E";
+
+        Integer expectedTotal = 50+30+20+15+2*40-30;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
 
 }
