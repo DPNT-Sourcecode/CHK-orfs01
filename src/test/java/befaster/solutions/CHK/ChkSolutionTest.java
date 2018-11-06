@@ -196,7 +196,7 @@ public class ChkSolutionTest {
     public void testKDiscount(){
         String basket = "ABCKKK";
 
-        Integer expectedTotal = 50+30+20+3*80-10;
+        Integer expectedTotal = 50+30+20+3*70-20;
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
