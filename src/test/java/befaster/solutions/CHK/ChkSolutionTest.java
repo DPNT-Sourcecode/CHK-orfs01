@@ -240,4 +240,11 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testRQDiscount(){
+        String basket = "RRRRRRQQ";
+
+        Integer expectedTotal = 2*30+6*50-2*30;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
 }
