@@ -80,12 +80,12 @@ public class CheckoutSolution {
         int free = itemToPayCount[eligibleItem-65]/required;
 
         if(itemToPayCount[freeItem-65]-free >= 0){
-            itemToPayCount[1]-=free;
+            itemToPayCount[freeItem-65]-=free;
             return free*priceArray[freeItem-65];
         }
         else {
             int itemCount = itemToPayCount[freeItem-65];
-            itemToPayCount[1] = 0;
+            itemToPayCount[freeItem-65] = 0;
             return itemCount*priceArray[freeItem-65];
 
         }
