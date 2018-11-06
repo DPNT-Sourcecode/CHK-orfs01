@@ -62,6 +62,10 @@ public class CheckoutSolution {
             itemToPayCount[1] = 0;
         }
 
+        //Discount For Product F
+        int freeF = itemToPayCount[5]/3;
+        total-=freeF*10;
+
         //calc discounts
         //discount A
         int discountQuantityA50 = itemToPayCount[0] / 5;

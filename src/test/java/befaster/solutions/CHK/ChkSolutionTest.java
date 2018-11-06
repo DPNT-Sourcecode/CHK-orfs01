@@ -151,9 +151,18 @@ public class ChkSolutionTest {
 
     @Test
     public void testFinBasketWithDiscount(){
-        String basket = "4F";
+        String basket = "7F";
 
-        Integer expectedTotal = 4*10-1*10;
+        Integer expectedTotal = 7*10-2*10;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testFinBasketWithDiscountAndOtherItems(){
+        String basket = "5A2BC3D7F";
+
+        Integer expectedTotal = 5*50+2*30+20+3*15+7*10-50-15-2*10;
 
         assertEquals(expectedTotal, chk.checkout(basket));
     }
