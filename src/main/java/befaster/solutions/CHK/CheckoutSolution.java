@@ -7,6 +7,7 @@ public class CheckoutSolution {
 
         int total = 0;
         StringBuilder tempNum = new StringBuilder();
+        int[] itemCount = new int[4];
 
         for(Character c: skus.toCharArray()){
 
@@ -18,15 +19,35 @@ public class CheckoutSolution {
                 int count = 1;
                 if(tempNum.length() > 0) count = Integer.parseInt(tempNum.toString());
 
-                if (c == 'A') total+=count*50;
-                else if (c == 'B') total+=count*30;
-                else if (c == 'C') total+=count*20;
-                else if (c == 'D') total+=count*15;
+                if (c == 'A'){
+                    itemCount[0]+=count;
+                    total+=count*50;
+                }
+                else if (c == 'B'){
+                    itemCount[1]+=count;
+                    total+=count*30;
+                }
+                else if (c == 'C'){
+                    itemCount[2]+=count;
+                    total+=count*20;
+                }
+                else if (c == 'D'){
+                    itemCount[3]+=count;
+                    total+=count*15;
+                }
                 else
                     return -1;
 
                 tempNum = new StringBuilder();
             }
+
+            //calc discounts
+            //discount A
+            int discountQuantityA = itemCount[0] % 3;
+            total-=discountQuantityA*20;
+
+            int discountQuantityB = itemCount[1] % 2;
+            total-=discountQuantityB*15;
 
 
         }
