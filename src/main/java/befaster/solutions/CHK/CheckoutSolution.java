@@ -33,6 +33,7 @@ public class CheckoutSolution {
         //Buy X A get Y B Free
         total -= applyFreeOtherItemDiscount('E',2,'B');
         total -= applyFreeOtherItemDiscount('N',3,'M');
+        total -= applyFreeOtherItemDiscount('R',3,'Q');
 
         //Buy X A Get Y A Free
         total -= applyFreeSameItemDiscount('F',3);

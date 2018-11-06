@@ -228,7 +228,15 @@ public class ChkSolutionTest {
     public void testRDiscount(){
         String basket = "ABCRRRQQQQ";
 
-        Integer expectedTotal = 50+30+20+3*50+4*30-30;
+        Integer expectedTotal = 50+30+20+3*50+4*30-30-10;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testUDiscount(){
+        String basket = "ABCRRRUUUUU";
+
+        Integer expectedTotal = 50+30+20+3*50+5*40-40;
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
