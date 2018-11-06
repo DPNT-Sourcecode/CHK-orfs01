@@ -255,4 +255,20 @@ public class ChkSolutionTest {
         Integer expectedTotal = 50+30+45;
         assertEquals(expectedTotal, chk.checkout(basket));
     }
+
+    @Test
+    public void buy3OfDiscountWith3Expensive(){
+        String basket = "ABXYZZZ";
+
+        Integer expectedTotal = 50+30+17+20+45;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void buy3OfDiscountWith3Cheap(){
+        String basket = "ABXXYSZ";
+
+        Integer expectedTotal = 50+30+2*17+45;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
 }
