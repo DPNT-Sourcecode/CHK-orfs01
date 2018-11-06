@@ -47,6 +47,11 @@ public class CheckoutSolution {
 
         }
 
+        //Discount For Product E
+        int freeB = itemCount[4]/2;
+        if(itemCount[1]-freeB >= 0) itemCount[1]-=freeB;
+        else itemCount[1] = 0;
+
         //calc discounts
         //discount A
         int discountQuantityA = itemCount[0] / 3;
