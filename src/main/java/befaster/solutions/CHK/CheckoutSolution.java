@@ -1,12 +1,15 @@
 package befaster.solutions.CHK;
 
 public class CheckoutSolution {
+
+    private int[] itemToPayCount = new int[26];
+    private int[] priceArray = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
+
+
     public Integer checkout(String skus) {
 
         int total = 0;
 
-        int[] itemToPayCount = new int[26];
-        int[] priceArray = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
 
         for(Character c: skus.toCharArray()){
             if (c.charValue() >= 65 && c.charValue() <= 90) {
@@ -19,23 +22,24 @@ public class CheckoutSolution {
 
         }
 
-        //Discount For Product E
-        int freeB = itemToPayCount[4]/2;
-        if(itemToPayCount[1]-freeB >= 0){
-            itemToPayCount[1]-=freeB;
-            total-=freeB*30;
-        }
-        else {
-            total-=itemToPayCount[1]*30;
-            itemToPayCount[1] = 0;
-        }
+        total = applyDiscounts(total);
 
-        //Discount For Product F
+        return total;
+    }
+
+    private int applyDiscounts(int total) {
+
+        // Free Item Calculations
+        //Discount For Product E
+        total-=applyFreeOtherItemDiscount('E',2,'B');
+
+        //ProductF
         int freeF = itemToPayCount[5]/3;
         total-=freeF*10;
 
-        //calc discounts
-        //discount A
+
+        //Bulk Discount Calculations
+        //ProductA
         int discountQuantityA50 = itemToPayCount[0] / 5;
         int remainingA = itemToPayCount[0] % 5;
         int discountQuantityA20 = remainingA / 3;
@@ -43,25 +47,25 @@ public class CheckoutSolution {
         total-=discountQuantityA50*50;
         total-=discountQuantityA20*20;
 
+        //ProductB
         int discountQuantityB = itemToPayCount[1] / 2;
         total-=discountQuantityB*15;
-
         return total;
     }
-//
-//
-//    public enum SKU{
-//        A(50),B(30),C(20),D(15);
-//
-//        private final int value;
-//
-//        SKU(final int newValue){
-//            value = newValue;
-//        }
-//
-//        public int getValue() {
-//            return value;
-//        }
-//
-//    }
+
+    private int applyFreeOtherItemDiscount(char eligibleItem, int required, char freeItem) {
+        int free = itemToPayCount[eligibleItem-65]/2;
+
+        if(itemToPayCount[freeItem-65]-free >= 0){
+            itemToPayCount[1]-=free;
+            return free*priceArray[freeItem-65];
+        }
+        else {
+            int itemCount = itemToPayCount[freeItem-65];
+            itemToPayCount[1] = 0;
+            return itemCount*30;
+
+        }
+    }
+
 }
