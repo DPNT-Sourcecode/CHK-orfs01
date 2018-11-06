@@ -30,26 +30,30 @@ public class CheckoutSolution {
     private int applyDiscounts(int total) {
 
         // Free Item Calculations
-        //Discount For Product E
+        //Buy X A get Y B Free
         total -= applyFreeOtherItemDiscount('E',2,'B');
 
-        //ProductF
+        //Buy X A Get Y A Free
         total -= applyFreeSameItemDiscount('F',3);
 
 
         //Bulk Discount Calculations
         //ProductA
-        int discountQuantityA50 = itemToPayCount[0] / 5;
-        int remainingA = itemToPayCount[0] % 5;
-        int discountQuantityA20 = remainingA / 3;
-
-        total-=discountQuantityA50*50;
-        total-=discountQuantityA20*20;
+        total -=applyGraduatedBulkDiscount('A',5,50,3,20);
 
         //ProductB
         int discountQuantityB = itemToPayCount[1] / 2;
         total-=discountQuantityB*15;
         return total;
+    }
+
+    private int applyGraduatedBulkDiscount(int eligibleItem, int primaryQuantity, int primaryDiscount, int secondaryQuantity, int secondaryDiscount) {
+        int discountPrimaryQuantity = itemToPayCount[eligibleItem-65] / primaryQuantity;
+        int itemsRemainderAfterPrimary = itemToPayCount[eligibleItem-65] % primaryQuantity;
+        int discountSecondaryQuantity = itemsRemainderAfterPrimary / secondaryQuantity;
+
+        return discountPrimaryQuantity*primaryDiscount + discountSecondaryQuantity*secondaryDiscount;
+
     }
 
     private int applyFreeSameItemDiscount(char eligibleItem, int requireForOneFree) {
