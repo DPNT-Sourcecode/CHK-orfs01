@@ -70,7 +70,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testMultiBuyDiscount(){
-        String basket = "3A2BCD";
+        String basket = "AAABBCD";
 
         Integer expectedTotal = 210;
 
@@ -79,7 +79,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testMultiBuyDiscountAndNonContiguousItems(){
-        String basket = "3A2BCDBDA3D6B";
+        String basket = "AAABBCDBDADDDBBBBBB";
 
         Integer expectedTotal = 4*50+9*30+20+5*15-20-4*15;
 
@@ -106,7 +106,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testNewADiscount(){
-        String basket = "8A";
+        String basket = "AAAAAAAA";
 
         Integer expectedTotal = 200+130;
 
@@ -115,7 +115,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testNewADiscountWithBDiscount(){
-        String basket = "9A3BCD4E";
+        String basket = "AAAAAAAAABBBCDEEEE";
 
         Integer expectedTotal = 9*50+3*30+20+15+4*40-2*30-1*50-1*20;
 
@@ -124,7 +124,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testBFreeAndBDiscount(){
-        String basket = "A5B4E";
+        String basket = "ABBBBBEEEE";
 
         Integer expectedTotal = 50+5*30+4*40-2*30-15;
 
@@ -133,7 +133,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testBFreeAndBDiscountDoesNotEqualNegativeBSpendTotal(){
-        String basket = "4B10E";
+        String basket = "BBBBEEEEEEEEEE";
 
         Integer expectedTotal = 4*30+10*40-4*30;
 
@@ -142,7 +142,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testFinBasket(){
-        String basket = "2F";
+        String basket = "FF";
 
         Integer expectedTotal = 2*10;
 
@@ -151,7 +151,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testFinBasketWithDiscount(){
-        String basket = "7F";
+        String basket = "FFFFFFF";
 
         Integer expectedTotal = 7*10-2*10;
 
@@ -160,7 +160,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testFinBasketWithDiscountAndOtherItems(){
-        String basket = "5A2BC3D7F";
+        String basket = "AAAAABBCDDDFFFFFFF";
 
         Integer expectedTotal = 5*50+2*30+20+3*15+7*10-50-15-2*10;
 
