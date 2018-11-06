@@ -1,49 +1,20 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
-
 public class CheckoutSolution {
     public Integer checkout(String skus) {
 
         int total = 0;
 
-        int[] itemToPayCount = new int[6];
+        int[] itemToPayCount = new int[26];
+        int[] priceArray = {50,30,20,15,40,10,20,10,35,60,80,90,15,40,10,50,30,50,30,20,40,50,20,90,10,50};
 
         for(Character c: skus.toCharArray()){
+            if (c.charValue() >= 65 && c.charValue() <= 90) {
+                itemToPayCount[c.charValue() - 65]++;
+                total += priceArray[c.charValue() - 65];
+            } else {
 
-
-
-                int count = 1;
-                if(c.charValue() >= );
-
-                if (c == 'A'){
-                    itemToPayCount[0]+=count;
-                    total+=count*50;
-                }
-                else if (c == 'B'){
-                    itemToPayCount[1]+=count;
-                    total+=count*30;
-                }
-                else if (c == 'C'){
-                    itemToPayCount[2]+=count;
-                    total+=count*20;
-                }
-                else if (c == 'D'){
-                    itemToPayCount[3]+=count;
-                    total+=count*15;
-                }
-                else if (c == 'E'){
-                    itemToPayCount[4]+=count;
-                    total+=count*40;
-                }
-                else if (c == 'F'){
-                    itemToPayCount[5]+=count;
-                    total+=count*10;
-                }
-                else
-                    return -1;
-
-
+                return -1;
             }
 
         }

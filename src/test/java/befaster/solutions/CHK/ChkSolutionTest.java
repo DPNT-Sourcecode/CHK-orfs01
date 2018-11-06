@@ -34,7 +34,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testCalculationMultiItem(){
-        String basket = "2A1B2CD";
+        String basket = "AABCCD";
 
         Integer expectedTotal = 185;
 
@@ -43,9 +43,9 @@ public class ChkSolutionTest {
 
     @Test
     public void testCalculationMultiItemLargeNumbers(){
-        String basket = "AB13C42D";
+        String basket = "ABCCCCCCCCCCCCCDDDDDDDDDDDDDDDDDD";
 
-        Integer expectedTotal = 970;
+        Integer expectedTotal = 50+30+13*20+18*15;
 
         assertEquals(expectedTotal, chk.checkout(basket));
     }
@@ -97,7 +97,7 @@ public class ChkSolutionTest {
 
     @Test
     public void testItemEDiscount(){
-        String basket = "ABCD2E";
+        String basket = "ABCDEE";
 
         Integer expectedTotal = 50+30+20+15+2*40-30;
 
