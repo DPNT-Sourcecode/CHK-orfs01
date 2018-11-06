@@ -8,6 +8,8 @@ public class CheckoutSolution {
 
     public Integer checkout(String skus) {
 
+        itemToPayCount = new int[26];
+
         int total = 0;
 
         for(Character c: skus.toCharArray()){
