@@ -140,4 +140,22 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testFinBasket(){
+        String basket = "2F";
+
+        Integer expectedTotal = 2*10;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testFinBasketWithDiscount(){
+        String basket = "4F";
+
+        Integer expectedTotal = 4*10-1*10;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
 }

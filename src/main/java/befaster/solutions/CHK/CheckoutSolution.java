@@ -7,7 +7,7 @@ public class CheckoutSolution {
 
         int total = 0;
         StringBuilder tempNum = new StringBuilder();
-        int[] itemToPayCount = new int[5];
+        int[] itemToPayCount = new int[6];
 
         for(Character c: skus.toCharArray()){
 
@@ -38,6 +38,10 @@ public class CheckoutSolution {
                 else if (c == 'E'){
                     itemToPayCount[4]+=count;
                     total+=count*40;
+                }
+                else if (c == 'F'){
+                    itemToPayCount[5]+=count;
+                    total+=count*10;
                 }
                 else
                     return -1;
