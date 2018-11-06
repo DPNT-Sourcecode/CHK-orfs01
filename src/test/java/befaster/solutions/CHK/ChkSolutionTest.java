@@ -34,18 +34,18 @@ public class ChkSolutionTest {
 
     @Test
     public void testCalculationMultiItem(){
-        String basket = "3A2BCD";
+        String basket = "2A1B2CD";
 
-        Integer expectedTotal = 245;
+        Integer expectedTotal = 185;
 
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
     @Test
     public void testCalculationMultiItemLargeNumbers(){
-        String basket = "A2BC42D";
+        String basket = "AB13C42D";
 
-        Integer expectedTotal = 760;
+        Integer expectedTotal = 970;
 
         assertEquals(expectedTotal, chk.checkout(basket));
     }
