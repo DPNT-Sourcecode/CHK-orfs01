@@ -201,10 +201,10 @@ public class ChkSolutionTest {
     }
 
     @Test
-    public void testMDiscount(){
-        String basket = "ABCMMMMM";
+    public void testNDiscount(){
+        String basket = "ABCNNNNMM";
 
-        Integer expectedTotal = 50+30+20+5*40-40;
+        Integer expectedTotal = 50+30+20+2*15+4*40-15;
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 

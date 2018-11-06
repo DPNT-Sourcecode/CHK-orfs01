@@ -32,6 +32,7 @@ public class CheckoutSolution {
         // Free Item Calculations
         //Buy X A get Y B Free
         total -= applyFreeOtherItemDiscount('E',2,'B');
+        total -= applyFreeOtherItemDiscount('N',3,'M');
 
         //Buy X A Get Y A Free
         total -= applyFreeSameItemDiscount('F',3);
@@ -70,7 +71,7 @@ public class CheckoutSolution {
     }
 
     private int applyFreeOtherItemDiscount(char eligibleItem, int required, char freeItem) {
-        int free = itemToPayCount[eligibleItem-65]/2;
+        int free = itemToPayCount[eligibleItem-65]/required;
 
         if(itemToPayCount[freeItem-65]-free >= 0){
             itemToPayCount[1]-=free;
