@@ -7,7 +7,7 @@ public class CheckoutSolution {
 
         int total = 0;
         StringBuilder tempNum = new StringBuilder();
-        int[] itemCount = new int[5];
+        int[] itemToPayCount = new int[5];
 
         for(Character c: skus.toCharArray()){
 
@@ -20,23 +20,23 @@ public class CheckoutSolution {
                 if(tempNum.length() > 0) count = Integer.parseInt(tempNum.toString());
 
                 if (c == 'A'){
-                    itemCount[0]+=count;
+                    itemToPayCount[0]+=count;
                     total+=count*50;
                 }
                 else if (c == 'B'){
-                    itemCount[1]+=count;
+                    itemToPayCount[1]+=count;
                     total+=count*30;
                 }
                 else if (c == 'C'){
-                    itemCount[2]+=count;
+                    itemToPayCount[2]+=count;
                     total+=count*20;
                 }
                 else if (c == 'D'){
-                    itemCount[3]+=count;
+                    itemToPayCount[3]+=count;
                     total+=count*15;
                 }
                 else if (c == 'E'){
-                    itemCount[4]+=count;
+                    itemToPayCount[4]+=count;
                     total+=count*40;
                 }
                 else
@@ -48,16 +48,20 @@ public class CheckoutSolution {
         }
 
         //Discount For Product E
-        int freeB = itemCount[4]/2;
-        if(itemCount[1]-freeB >= 0) itemCount[1]-=freeB;
-        else itemCount[1] = 0;
+        int freeB = itemToPayCount[4]/2;
+        if(itemToPayCount[1]-freeB >= 0) itemToPayCount[1]-=freeB;
+        else itemToPayCount[1] = 0;
 
         //calc discounts
         //discount A
-        int discountQuantityA = itemCount[0] / 3;
-        total-=discountQuantityA*20;
+        int discountQuantityA50 = itemToPayCount[0] / 5;
+        int remainingA = itemToPayCount[0] % 5;
+        int discountQuantityA20 = remainingA / 3;
 
-        int discountQuantityB = itemCount[1] / 2;
+        total-=discountQuantityA50*50;
+        total-=discountQuantityA20*20;
+
+        int discountQuantityB = itemToPayCount[1] / 2;
         total-=discountQuantityB*15;
 
         return total;
