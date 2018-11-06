@@ -15,7 +15,8 @@ public class CheckoutSolution {
             }
             else{
 
-                int count = Integer.parseInt(tempNum.toString());
+                int count = 1;
+                if(tempNum.length() > 0) count = Integer.parseInt(tempNum.toString());
 
                 if (c == 'A') total+=count*50;
                 else if (c == 'B') total+=count*30;

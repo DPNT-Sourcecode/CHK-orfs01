@@ -41,4 +41,32 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testCalculationMultiItemLargeNumbers(){
+        String basket = "A2BC42D";
+
+        Integer expectedTotal = 760;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testInvalidCharacters(){
+        String basket = "A2XBC42D";
+
+        Integer expectedTotal = -1;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testInvalidCharacters2(){
+        String basket = "A2XBC4#D";
+
+        Integer expectedTotal = -1;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+
 }
