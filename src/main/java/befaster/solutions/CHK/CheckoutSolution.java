@@ -31,11 +31,10 @@ public class CheckoutSolution {
 
         // Free Item Calculations
         //Discount For Product E
-        total-=applyFreeOtherItemDiscount('E',2,'B');
+        total -= applyFreeOtherItemDiscount('E',2,'B');
 
         //ProductF
-        int freeF = itemToPayCount[5]/3;
-        total-=freeF*10;
+        total -= applyFreeSameItemDiscount('F',3);
 
 
         //Bulk Discount Calculations
@@ -53,6 +52,11 @@ public class CheckoutSolution {
         return total;
     }
 
+    private int applyFreeSameItemDiscount(char eligibleItem, int requireForOneFree) {
+        int free = itemToPayCount[eligibleItem-65]/requireForOneFree;
+        return priceArray[eligibleItem-65]*free;
+    }
+
     private int applyFreeOtherItemDiscount(char eligibleItem, int required, char freeItem) {
         int free = itemToPayCount[eligibleItem-65]/2;
 
@@ -63,7 +67,7 @@ public class CheckoutSolution {
         else {
             int itemCount = itemToPayCount[freeItem-65];
             itemToPayCount[1] = 0;
-            return itemCount*30;
+            return itemCount*priceArray[freeItem-65];
 
         }
     }
