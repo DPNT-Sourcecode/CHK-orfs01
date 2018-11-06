@@ -79,9 +79,9 @@ public class ChkSolutionTest {
 
     @Test
     public void testMultiBuyDiscountAndNonContiguousItems(){
-        String basket = "3A2BCDBD5A3D6B";
+        String basket = "3A2BCDBDA3D6B";
 
-        Integer expectedTotal = 665;
+        Integer expectedTotal = 4*50+9*30+20+5*15-20-4*15;
 
         assertEquals(expectedTotal, chk.checkout(basket));
     }
