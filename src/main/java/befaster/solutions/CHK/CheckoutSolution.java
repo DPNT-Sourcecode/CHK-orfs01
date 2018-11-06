@@ -39,12 +39,17 @@ public class CheckoutSolution {
 
         //Bulk Discount Calculations
         //ProductA
-        total -=applyGraduatedBulkDiscount('A',5,50,3,20);
+        total -= applyGraduatedBulkDiscount('A',5,50,3,20);
 
         //ProductB
-        int discountQuantityB = itemToPayCount[1] / 2;
-        total-=discountQuantityB*15;
+        total -= applySingleBulkDiscount('B',2,15);
+
         return total;
+    }
+
+    private int applySingleBulkDiscount(int eligibleItem, int q, int d) {
+        int discountQuantity = itemToPayCount[eligibleItem-65] / q;
+        return discountQuantity*d;
     }
 
     private int applyGraduatedBulkDiscount(int eligibleItem, int primaryQuantity, int primaryDiscount, int secondaryQuantity, int secondaryDiscount) {
