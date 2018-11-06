@@ -126,7 +126,16 @@ public class ChkSolutionTest {
     public void testBFreeAndBDiscount(){
         String basket = "A5B4E";
 
-        Integer expectedTotal = 50+5*30-2*30-15;
+        Integer expectedTotal = 50+5*30+4*40-2*30-15;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testBFreeAndBDiscountDoesNotEqualNegativeBSpendTotal(){
+        String basket = "4B10E";
+
+        Integer expectedTotal = 4*30+10*40-4*30;
 
         assertEquals(expectedTotal, chk.checkout(basket));
     }
