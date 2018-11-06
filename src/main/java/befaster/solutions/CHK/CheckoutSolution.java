@@ -37,15 +37,16 @@ public class CheckoutSolution {
 
         //Buy X A Get Y A Free
         total -= applyFreeSameItemDiscount('F',3);
+        total -= applyFreeSameItemDiscount('U',4);
 
 
         //Bulk Discount Calculations
-        //ProductA
+        //Graduated Discount
         total -= applyGraduatedBulkDiscount('A',5,50,3,20);
         total -= applyGraduatedBulkDiscount('H',10,20,5,5);
         total -= applyGraduatedBulkDiscount('V',3,20,2,10);
 
-        //ProductB
+        //Single Discount
         total -= applySingleBulkDiscount('B',2,15);
         total -= applySingleBulkDiscount('K',2,10);
         total -= applySingleBulkDiscount('P',5,50);
