@@ -6,17 +6,28 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
 
         int total = 0;
+        StringBuilder tempNum = new StringBuilder();
 
         for(Character c: skus.toCharArray()){
 
-            if(c.charValue() )
+            if(c.charValue() >= 48 && c.charValue() <= 58){
+                tempNum.append(c);
+            }
+            else{
 
-            if (c == 'A') total+=50;
-            else if (c == 'B') total+=30;
-            else if (c == 'C') total+=20;
-            else if (c == 'D') total+=15;
-            else
-                return -1;
+                int count = Integer.parseInt(tempNum.toString());
+
+                if (c == 'A') total+=count*50;
+                else if (c == 'B') total+=count*30;
+                else if (c == 'C') total+=count*20;
+                else if (c == 'D') total+=count*15;
+                else
+                    return -1;
+
+                tempNum = new StringBuilder();
+            }
+
+
         }
 
         return total;
