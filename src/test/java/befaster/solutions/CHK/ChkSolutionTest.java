@@ -32,4 +32,13 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testCalculationMultiItem(){
+        String basket = "3A2BCD";
+
+        Integer expectedTotal = 245;
+
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
 }

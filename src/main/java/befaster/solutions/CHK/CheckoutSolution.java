@@ -8,6 +8,9 @@ public class CheckoutSolution {
         int total = 0;
 
         for(Character c: skus.toCharArray()){
+
+            if(c.charValue() )
+
             if (c == 'A') total+=50;
             else if (c == 'B') total+=30;
             else if (c == 'C') total+=20;
