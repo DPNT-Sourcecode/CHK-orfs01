@@ -176,5 +176,13 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testHDiscount(){
+        String basket = "ABCHHHHHHHHHHHHHHHH";
+
+        Integer expectedTotal = 50+30+20+16*10-20-5;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
 
 }
