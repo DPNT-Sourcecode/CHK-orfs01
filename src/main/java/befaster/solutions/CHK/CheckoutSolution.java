@@ -47,6 +47,8 @@ public class CheckoutSolution {
         //ProductB
         total -= applySingleBulkDiscount('B',2,15);
         total -= applySingleBulkDiscount('K',2,10);
+        total -= applySingleBulkDiscount('P',5,50);
+        total -= applySingleBulkDiscount('Q',3,10);
 
         return total;
     }
