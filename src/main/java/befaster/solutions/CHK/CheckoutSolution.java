@@ -41,16 +41,15 @@ public class CheckoutSolution {
                 tempNum = new StringBuilder();
             }
 
-            //calc discounts
-            //discount A
-            int discountQuantityA = itemCount[0] % 3;
-            total-=discountQuantityA*20;
-
-            int discountQuantityB = itemCount[1] % 2;
-            total-=discountQuantityB*15;
-
-
         }
+
+        //calc discounts
+        //discount A
+        int discountQuantityA = itemCount[0] / 3;
+        total-=discountQuantityA*20;
+
+        int discountQuantityB = itemCount[1] / 2;
+        total-=discountQuantityB*15;
 
         return total;
     }
