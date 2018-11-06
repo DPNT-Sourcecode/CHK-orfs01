@@ -184,5 +184,29 @@ public class ChkSolutionTest {
         assertEquals(expectedTotal, chk.checkout(basket));
     }
 
+    @Test
+    public void testVDiscount(){
+        String basket = "ABCVVVVV";
+
+        Integer expectedTotal = 50+30+20+5*50-20-10;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testKDiscount(){
+        String basket = "ABCKKK";
+
+        Integer expectedTotal = 50+30+20+3*80-10;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
+    @Test
+    public void testMDiscount(){
+        String basket = "ABCMMMMM";
+
+        Integer expectedTotal = 50+30+20+5*40-40;
+        assertEquals(expectedTotal, chk.checkout(basket));
+    }
+
 
 }

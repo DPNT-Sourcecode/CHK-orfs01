@@ -41,9 +41,11 @@ public class CheckoutSolution {
         //ProductA
         total -= applyGraduatedBulkDiscount('A',5,50,3,20);
         total -= applyGraduatedBulkDiscount('H',10,20,5,5);
+        total -= applyGraduatedBulkDiscount('V',3,20,2,10);
 
         //ProductB
         total -= applySingleBulkDiscount('B',2,15);
+        total -= applySingleBulkDiscount('K',2,10);
 
         return total;
     }
