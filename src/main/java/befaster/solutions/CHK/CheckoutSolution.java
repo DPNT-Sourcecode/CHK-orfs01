@@ -10,7 +10,6 @@ public class CheckoutSolution {
 
         int total = 0;
 
-
         for(Character c: skus.toCharArray()){
             if (c.charValue() >= 65 && c.charValue() <= 90) {
                 itemToPayCount[c.charValue() - 65]++;
