@@ -54,7 +54,44 @@ public class CheckoutSolution {
         total -= applySingleBulkDiscount('P',5,50);
         total -= applySingleBulkDiscount('Q',3,10);
 
+        //Three of discount
+        //order discount group from highest price to lowest price
+        char[] discountGroup = {'Z','Y','T','S','X'};
+        total-=calcGroupDiscount(discountGroup, 3);
+
         return total;
+    }
+
+    private int calcGroupDiscount(char[] discountGroup, int groupSize) {
+        int discount = 0;
+        int totalCount = 0;
+
+        for(char c: discountGroup){
+            totalCount+=itemToPayCount[c-65];
+        }
+
+        int discountSets = totalCount/groupSize;
+
+        int currentProduct = 0;
+        char c = discountGroup[currentProduct];
+        int currentProductTempCount = itemToPayCount[c-65];
+
+        for(int i = 0; i < discountSets; i++){
+            for(int j = 0; j < groupSize; j++){
+                 if(currentProductTempCount > 0){
+                     discount+=priceArray[c-65];
+                     currentProductTempCount--;
+                 } else{
+                     currentProduct++;
+                     c = discountGroup[currentProduct];
+                     currentProductTempCount = itemToPayCount[c-65];
+                     j--;
+                 }
+            }
+            discount-=45;
+        }
+
+        return discount;
     }
 
     private int applySingleBulkDiscount(int eligibleItem, int q, int d) {
